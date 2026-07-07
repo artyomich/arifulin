@@ -4,3 +4,4 @@ backup/
 node_modules/
 .deploy/
 .env
+.vscode/
