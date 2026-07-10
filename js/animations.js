@@ -101,7 +101,7 @@ document.addEventListener('keydown', (e) => {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
-        if (href === '#privacy') return; // handled by modal
+        if (href === '#privacy' || href === '#cookie-policy') return; // handled by modals
 
         const target = document.querySelector(href);
         if (target) {
@@ -113,3 +113,88 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// ===== COOKIE BANNER =====
+(function() {
+    const COOKIE_CONSENT_KEY = 'cookie_consent_given';
+    const cookieBanner = document.getElementById('cookie-banner');
+    const cookieAcceptBtn = document.getElementById('cookie-accept');
+    const cookieSettingsBtn = document.getElementById('cookie-settings');
+    const cookieModal = document.getElementById('cookie-modal');
+    const cookieModalLinks = document.querySelectorAll('a[href="#cookie-policy"]');
+    const cookieModalClose = cookieModal ? cookieModal.querySelector('.modal-close') : null;
+
+    function showBanner() {
+        if (cookieBanner) {
+            cookieBanner.classList.add('show');
+        }
+    }
+
+    function hideBanner() {
+        if (cookieBanner) {
+            cookieBanner.classList.remove('show');
+        }
+    }
+
+    function acceptCookies() {
+        try { localStorage.setItem(COOKIE_CONSENT_KEY, 'true'); } catch(e) {}
+        hideBanner();
+    }
+
+    // Show banner only if user hasn't accepted yet
+    if (cookieBanner) {
+        let consentGiven = false;
+        try { consentGiven = localStorage.getItem(COOKIE_CONSENT_KEY) === 'true'; } catch(e) {}
+        if (!consentGiven) {
+            setTimeout(showBanner, 1500);
+        }
+    }
+
+    // Accept button
+    if (cookieAcceptBtn) {
+        cookieAcceptBtn.addEventListener('click', acceptCookies);
+    }
+
+    // Settings button - open cookie policy modal
+    if (cookieSettingsBtn) {
+        cookieSettingsBtn.addEventListener('click', function() {
+            hideBanner();
+        });
+    }
+
+    // Open cookie policy modal from "Подробнее" link
+    cookieModalLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            hideBanner();
+            cookieModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Close cookie modal
+    if (cookieModalClose) {
+        cookieModalClose.addEventListener('click', function() {
+            cookieModal.classList.remove('show');
+            document.body.style.overflow = '';
+        });
+    }
+
+    // Close cookie modal on backdrop click
+    if (cookieModal) {
+        cookieModal.addEventListener('click', function(e) {
+            if (e.target === cookieModal) {
+                cookieModal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
+    // Close on ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && cookieModal && cookieModal.classList.contains('show')) {
+            cookieModal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+    });
+})();

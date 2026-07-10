@@ -42,10 +42,23 @@
     </style>
 </head>
 
-<script type="text/javascript" src="https://mc.yandex.ru/metrika/watch.js"></script>
-<div>
-<script type="text/javascript">Ya.Metrika.init({id:42492774, clickmap: true, trackLinks: true, accurateTrackBounce: true});</script>
-</div>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(42492774, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/42492774" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 
 <body>
     <!-- ===== NAVIGATION ===== -->
@@ -572,6 +585,10 @@
             <p style="margin-top: 0.5rem; font-size: 0.8rem;">
                 <a href="#privacy" class="footer-link">Политика обработки персональных данных</a>
             </p>
+            <div class="footer-disclaimer">
+                <p>Обращаем Ваше внимание на то, что данный интернет-сайт носит исключительно информационный характер и ни при каких условиях информационные материалы и цены, размещенные на сайте, не являются публичной офертой, определяемой положениями Статей 435 и 437 Гражданского кодекса РФ.</p>
+                <p style="margin-top: 0.5rem;">*Если иное не указано, обработка персональных данных, опубликованных на сайте, неограниченным кругом лиц не запрещена, условия обработки не установлены.</p>
+            </div>
         </div>
     </footer>
 
@@ -629,6 +646,63 @@
                 <p>По всем вопросам, связанным с обработкой персональных данных, вы можете обратиться по электронной
                     почте: arifulin@gmail.com</p>
             </div>
+        </div>
+    </div>
+
+    <!-- ===== Cookie Policy Modal ===== -->
+    <div id="cookie-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Политика использования файлов cookie</h2>
+            <div class="modal-body">
+                <h3>1. Что такое файлы cookie</h3>
+                <p>Файлы cookie — это небольшие текстовые файлы, которые сохраняются на вашем устройстве при посещении веб-сайтов. Они широко используются для обеспечения корректной работы сайтов и улучшения пользовательского опыта.</p>
+
+                <h3>2. Какие cookie-файлы мы используем</h3>
+                <p>Наш сайт использует сервис «Яндекс.Метрика» для аналитики посещаемости, который устанавливает файлы cookie для сбора анонимной статистической информации.</p>
+                <p>Собираемая информация включает:</p>
+                <ul>
+                    <li>Количество посетителей и страницы, которые они посещают</li>
+                    <li>Источник перехода на сайт</li>
+                    <li>Продолжительность посещения</li>
+                    <li>Технические данные об устройстве и браузере</li>
+                </ul>
+
+                <h3>3. Зачем мы используем cookie</h3>
+                <p>Данные, собранные с помощью cookie, помогают нам:</p>
+                <ul>
+                    <li>Понимать, как пользователи взаимодействуют с сайтом</li>
+                    <li>Улучшать содержание и структуру сайта</li>
+                    <li>Анализировать эффективность нашего контента</li>
+                </ul>
+
+                <h3>4. Управление cookie</h3>
+                <p>Вы можете настроить свой браузер на отклонение файлов cookie или на отображение уведомления при получении нового cookie. Однако в этом случае некоторые функции сайта могут работать некорректно.</p>
+                <p>Инструкции по управлению cookie для популярных браузеров:</p>
+                <ul>
+                    <li>Google Chrome: Настройки → Конфиденциальность и безопасность → Файлы cookie</li>
+                    <li>Mozilla Firefox: Настройки → Приватность и защита → Cookie и данные сайтов</li>
+                    <li>Safari: Настройки Safari → Конфиденциальность</li>
+                    <li>Microsoft Edge: Настройки → Файлы cookie и разрешения сайтов</li>
+                </ul>
+
+                <h3>5. Продолжение использования сайта</h3>
+                <p>Продолжая использовать наш сайт, вы подтверждаете свое согласие на использование файлов cookie в соответствии с настоящей Политикой.</p>
+
+                <h3>6. Контакты</h3>
+                <p>По всем вопросам, связанным с использованием файлов cookie, вы можете обратиться по электронной почте: arifulin@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Cookie Banner ===== -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-banner-text">
+            Мы используем сервис «Яндекс.Метрика», который использует файлы cookie. <a href="#cookie-policy">Подробнее</a>
+        </div>
+        <div class="cookie-banner-buttons">
+            <button id="cookie-settings" class="cookie-banner-btn-secondary">Настройки</button>
+            <button id="cookie-accept" class="cookie-banner-btn-primary">Я согласен</button>
         </div>
     </div>
 
